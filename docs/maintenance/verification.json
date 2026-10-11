@@ -1,0 +1,1160 @@
+{
+  "repository": "qlib",
+  "source_commit_before_documentation_commit": "1f20a70638675848158325a2425227d12f78157f",
+  "recorded_on": "2026-10-12",
+  "records": [
+    {
+      "command": [
+        "uv",
+        "build"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "build",
+      "original_log": "qlib-build.log",
+      "log_sha256": "86e48be671a0b88e72f606a76f8d4fcdbabb581fd935bf7097461fb217a53025",
+      "outcomes": [
+        "Successfully built dist/pyqlib-0.9.9.dev0.tar.gz",
+        "Successfully built dist/pyqlib-0.9.9.dev0-cp314-cp314-macosx_12_0_arm64.whl"
+      ]
+    },
+    {
+      "command": [
+        "uv",
+        "build"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "build-ci-compatible-final",
+      "original_log": "qlib-build-ci-compatible-final.log",
+      "log_sha256": "6a65be05f24b47a240b70b7d34615303416836bd090964ed0fc3c714d7c82fe1",
+      "outcomes": [
+        "Successfully built dist/pyqlib-0.9.9.dev0.tar.gz",
+        "Successfully built dist/pyqlib-0.9.9.dev0-cp314-cp314-macosx_11_0_arm64.whl"
+      ]
+    },
+    {
+      "command": [
+        "uv",
+        "build"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "build-compatible-final",
+      "original_log": "qlib-build-compatible-final.log",
+      "log_sha256": "464e0ee14427c5221a19fe10b10760afd8e68223d55fb73b176ac0b26b55474b",
+      "outcomes": [
+        "Successfully built dist/pyqlib-0.9.9.dev0.tar.gz",
+        "Successfully built dist/pyqlib-0.9.9.dev0-cp314-cp314-macosx_11_0_arm64.whl"
+      ]
+    },
+    {
+      "command": [
+        "uv",
+        "build"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "build-final",
+      "original_log": "qlib-build-final.log",
+      "log_sha256": "26a12e895e35cc1a8785473e8a5b16fb1a48818adbfd4ada6a2972ef768068a8",
+      "outcomes": [
+        "Successfully built dist/pyqlib-0.9.9.dev0.tar.gz",
+        "Successfully built dist/pyqlib-0.9.9.dev0-cp314-cp314-macosx_11_0_arm64.whl"
+      ]
+    },
+    {
+      "command": [
+        "uv",
+        "build"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "build-policy-info-final",
+      "original_log": "qlib-build-policy-info-final.log",
+      "log_sha256": "d0c8cf74aa36f00e112d9661ea4867ad033ccdb014d70dccd7c21920e31fa1a8",
+      "outcomes": [
+        "Successfully built dist/pyqlib-0.9.9.dev0.tar.gz",
+        "Successfully built dist/pyqlib-0.9.9.dev0-cp314-cp314-macosx_11_0_arm64.whl"
+      ]
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "scripts/get_data.py",
+        "download_data",
+        "--file_name",
+        "rl_data.zip",
+        "--target_dir",
+        "tests/.data/rl",
+        "--delete_old",
+        "False"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "ci-rl-data-download",
+      "original_log": "qlib-ci-rl-data-download.log",
+      "log_sha256": "f74a56096bd0fed1c12990de0702d1f8045d2e26bc71459bca32b155b6324590",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "qlib"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "compileall-ci-current-final",
+      "original_log": "qlib-compileall-ci-current-final.log",
+      "log_sha256": "50579b3a163192a2736356483006c94bbcb8185ae2df7d0ecc8885d547a0cf54",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "qlib",
+        "tests"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "compileall-policy-fixtures-final",
+      "original_log": "qlib-compileall-policy-fixtures-final.log",
+      "log_sha256": "70e4a67ff0addb15859cc7b8fd671788a315a8cb1dfff81a6149fa800b4d5c50",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "qlib"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "compileall-python313",
+      "original_log": "qlib-compileall-python313.log",
+      "log_sha256": "0b39cbcd4a01ba4fc8c6096acb0fd0f68c6c82fa7da958ba20813206ffaf1b8a",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "scripts/get_data.py",
+        "download_data",
+        "--file_name",
+        "v2/qlib_data_simple_cn_1d_latest.zip",
+        "--target_dir",
+        "/Users/alex/.qlib/qlib_data/cn_data",
+        "--delete_old",
+        "False"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "dataset-ci-download",
+      "original_log": "qlib-dataset-ci-download.log",
+      "log_sha256": "8e9dfc2fee2dfbff53f7d5baf6e90706c1171cba5e972d3bc83d225ec3bb5394",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/data_mid_layer_tests/test_handler.py",
+        "tests/security/test_pickle_utils.py",
+        "-x"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "handler-array-public-aliases",
+      "original_log": "qlib-handler-array-public-aliases.log",
+      "log_sha256": "d63e33d68dbceba4336446505d692db4640749f22769490a6e9ed03e611aa204",
+      "outcomes": [
+        "========================= 1 failed, 64 passed in 5.90s ========================="
+      ]
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/data_mid_layer_tests/test_handler.py",
+        "tests/security/test_pickle_utils.py",
+        "-x"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "handler-arrow-reconstruct",
+      "original_log": "qlib-handler-arrow-reconstruct.log",
+      "log_sha256": "8d278c6e70931a034aae57f1f3d2b9e10d591056b42e4b806a0d38a677b51555",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/data_mid_layer_tests/test_handler.py",
+        "tests/security/test_pickle_utils.py",
+        "-x"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "handler-arrow-string",
+      "original_log": "qlib-handler-arrow-string.log",
+      "log_sha256": "09f52dde861930e55df2f3f96b4a451919d9b9672d3937b910989f8f0c56ddc1",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/data_mid_layer_tests/test_handler.py",
+        "-x"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "handler-current-data",
+      "original_log": "qlib-handler-current-data.log",
+      "log_sha256": "4e9aabea240d1e19bfaaaf20fecc53ed52372b68973979292cf39f4ae80616e3",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/data_mid_layer_tests/test_handler.py",
+        "-x"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "handler-pandas-public-aliases",
+      "original_log": "qlib-handler-pandas-public-aliases.log",
+      "log_sha256": "bc88d86e2f9314e6e07b5f8095843531194bd997119d9ff2dcfc805a58aad042",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "lock",
+        "--upgrade"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "lock-ci-modern-compatible",
+      "original_log": "qlib-lock-ci-modern-compatible.log",
+      "log_sha256": "87ed5036162a5c2aa14fd0ffc615fe4f78f69145fd5ea0490d353c72055ea16e",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--all-groups",
+        "--all-extras",
+        "--python",
+        "3.14.8"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "python-final-compatible-sync",
+      "original_log": "qlib-python-final-compatible-sync.log",
+      "log_sha256": "69fe54ea649b72b293ae8c0131cf8b597294df4529c6e7e0543d8a65cd9ea74a",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--all-groups",
+        "--all-extras",
+        "--python",
+        "3.14.8"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "python-pandas-compatible-sync",
+      "original_log": "qlib-python-pandas-compatible-sync.log",
+      "log_sha256": "02eeebe15e39abec2855714fa49e927b9d2e5d14155b3811b3520cc110ae4263",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "lock",
+        "--upgrade",
+        "--python",
+        "3.14.8"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "python-pandas-compatible-upgrade",
+      "original_log": "qlib-python-pandas-compatible-upgrade.log",
+      "log_sha256": "06e33dcc2cf80293177ddf41539b768a8d1816eabb65373c6e7bae7b82e69b87",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--all-groups",
+        "--all-extras",
+        "--python",
+        "3.14.8"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "python-pandas-final-sync",
+      "original_log": "qlib-python-pandas-final-sync.log",
+      "log_sha256": "c98f9850128f6d9841adadc8ad57e28def6645267923b6873839ab5b66c1e7d3",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "lock",
+        "--upgrade",
+        "--python",
+        "3.14.8"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "python-pandas-final-upgrade",
+      "original_log": "qlib-python-pandas-final-upgrade.log",
+      "log_sha256": "e20731039399849fb1eaa6f3ba115a3e07106c3c2073963a1ec1a476fbd22a84",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--all-groups",
+        "--all-extras",
+        "--python",
+        "3.14.8"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "python-shimmy-sync",
+      "original_log": "qlib-python-shimmy-sync.log",
+      "log_sha256": "c858a6c03cef844dd0878316408d81245377721eec96d79127108904aadb73b1",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "lock",
+        "--upgrade",
+        "--python",
+        "3.14.8"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "python-shimmy-upgrade",
+      "original_log": "qlib-python-shimmy-upgrade.log",
+      "log_sha256": "ab3daad4e1524ee5ad16591953b6aa47e8fe0415a43e351b0d546243403240e3",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "lock",
+        "--upgrade",
+        "--python",
+        "3.14.8"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "python-tianshou-compatible",
+      "original_log": "qlib-python-tianshou-compatible.log",
+      "log_sha256": "043ddcdeaf9f2710a73d1fe9d36bf1e7a0c3a6af32a8b3ff5c75dd1722bde666",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--all-groups",
+        "--all-extras",
+        "--python",
+        "3.13.16"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "python313-fallback-sync",
+      "original_log": "qlib-python313-fallback-sync.log",
+      "log_sha256": "40a7f4ac8a8ed03d376e63154970b8ed932ca15389d8631fcc5789bfcaa21426",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--all-groups",
+        "--all-extras",
+        "--python",
+        "3.14.8"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "python3148-sync",
+      "original_log": "qlib-python3148-sync.log",
+      "log_sha256": "948ebb08eef961ea2f750b4b3dda0117bab1bc775a3fe4b7b81b5a41edccb568",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "lock",
+        "--upgrade",
+        "--python",
+        "3.15"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "python315-lock",
+      "original_log": "qlib-python315-lock.log",
+      "log_sha256": "87ede2ef1394cab861242f52028e8a9f762f3a992119f8b9a2dff8f720b7622c",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--python",
+        "3.15",
+        "--all-groups",
+        "--all-extras"
+      ],
+      "exit_code": 2,
+      "cwd": "<workspace>/qlib",
+      "check": "python315-sync",
+      "original_log": "qlib-python315-sync.log",
+      "log_sha256": "46213e63b657d42304613839f1eaf7cd19dd60b7aada9f2a087c2838f05f9ac0",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/rl/test_data_queue.py"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "queue-manager-spawn",
+      "original_log": "qlib-queue-manager-spawn.log",
+      "log_sha256": "9163192630b6bdcb5e5a502997f468a146e1a4bee12e8cbdff295775fb088547",
+      "outcomes": [
+        "=================== 3 failed, 1 passed, 3 warnings in 14.60s ==================="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/rl/test_trainer.py",
+        "-x"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "rl-diagnostic",
+      "original_log": "qlib-rl-diagnostic.log",
+      "log_sha256": "7ad8121feb1a7df49ee74f8d99524ccc5af2707c1a2b8d05d19697337e52930b",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/rl/test_trainer.py",
+        "tests/rl/test_data_queue.py",
+        "-x"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "rl-latest-compatible",
+      "original_log": "qlib-rl-latest-compatible.log",
+      "log_sha256": "8b05bf6b823282452229391e79c01febd752ca192ec285c825698e302f8e4d74",
+      "outcomes": [
+        "============== 1 failed, 1 passed, 1 warning in 68.90s (0:01:08) ==============="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/rl/test_trainer.py",
+        "-x"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "rl-manager-spawn",
+      "original_log": "qlib-rl-manager-spawn.log",
+      "log_sha256": "e231b0b9734100cdaca3db912307b906325ecbb4ab8b2a3701c36faca478283d",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/rl/test_trainer.py",
+        "tests/rl/test_data_queue.py"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "rl-spawn-compatible",
+      "original_log": "qlib-rl-spawn-compatible.log",
+      "log_sha256": "4cd23ac54de60737c533f648612d404e0d87f7d89c0a18c3251ef695aac0f10a",
+      "outcomes": [
+        "=================== 4 failed, 4 passed, 3 warnings in 35.96s ==================="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/rl/test_trainer.py",
+        "tests/rl/test_data_queue.py"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "rl-worker-owned-state",
+      "original_log": "qlib-rl-worker-owned-state.log",
+      "log_sha256": "f5a9cfc7fa8bdc6d34da2c4d88c9cbd6424be6d9bf9aa2180557c0bf34ee36ec",
+      "outcomes": [
+        "=================== 8 passed, 1 warning in 113.71s (0:01:53) ==================="
+      ]
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "--with",
+        "pandas<3",
+        "pytest",
+        "tests/data_mid_layer_tests/test_handler.py",
+        "tests/security/test_pickle_utils.py"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "security-pandas2-compatible",
+      "original_log": "qlib-security-pandas2-compatible.log",
+      "log_sha256": "569bd0e4e9c2f70e0eef1aeb921f65a6491873c03df092dbe18ac27067bfc096",
+      "outcomes": [
+        "======================= 139 passed, 4 warnings in 9.27s ========================"
+      ]
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/data_mid_layer_tests/test_handler.py",
+        "tests/security/test_pickle_utils.py"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "security-pandas3-aliases",
+      "original_log": "qlib-security-pandas3-aliases.log",
+      "log_sha256": "41f2c80252d8373ec61f51ff2d28e97e0c38693e3a27a9323a46e17cbd6a3918",
+      "outcomes": [
+        "======================== 14 failed, 125 passed in 3.69s ========================"
+      ]
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/data_mid_layer_tests/test_handler.py",
+        "tests/security/test_pickle_utils.py"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "security-public-scalars",
+      "original_log": "qlib-security-public-scalars.log",
+      "log_sha256": "427b4690581d93ca765030fc5bbc329c014cf1e0dbdfbfa0af1c27aab5c6eb1d",
+      "outcomes": [
+        "======================== 4 failed, 135 passed in 3.19s ========================="
+      ]
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--all-groups",
+        "--all-extras",
+        "--frozen",
+        "--python",
+        "3.14.8"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "sync-ci-modern-compatible",
+      "original_log": "qlib-sync-ci-modern-compatible.log",
+      "log_sha256": "e20351dffd5b4296ed0ba70c932baae6e1871c54fb1cfa6f376c649302a32df1",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--all-groups",
+        "--all-extras",
+        "--python",
+        "3.14.8"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "sync-restored314-ci-data",
+      "original_log": "qlib-sync-restored314-ci-data.log",
+      "log_sha256": "78dec3782f5fee712611dc52c07c848ca71bc87eb7c5b0d0a76f464ff561f246",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests"
+      ],
+      "exit_code": 124,
+      "cwd": "<workspace>/qlib",
+      "check": "tests",
+      "original_log": "qlib-tests.log",
+      "log_sha256": "e8cabe234c1d4792173103d48f12ea9f4f56c6f9c33b98128abb8993f0a08433",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "-v",
+        "--tb=short",
+        "tests/test_ci_configuration.py"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-ci-modern-policy",
+      "original_log": "qlib-tests-ci-modern-policy.log",
+      "log_sha256": "b0ff90d37cb705e8a1f362e348e3ef6218cacee6bbd79e7b5b70f86611941098",
+      "outcomes": [
+        "=============== 6 failed, 15 passed, 77 subtests passed in 0.15s ==============="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "tests/rolling_tests/test_ddgda.py",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-ddgda-single-native-owner",
+      "original_log": "qlib-tests-ddgda-single-native-owner.log",
+      "log_sha256": "3933f73a75bfb94c185e263aaf25e513f8cf2a0bb8c4d581257318f92487f642",
+      "outcomes": [
+        "================ 17 passed, 10799 warnings in 77.67s (0:01:17) ================="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ENABLE_FILE_SYSTEM_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest"
+      ],
+      "exit_code": 139,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-final-compatible",
+      "original_log": "qlib-tests-final-compatible.log",
+      "log_sha256": "78c4f96ef7b538204361afdfa4bdc5c17003b8ff09c2bb3888d974f3266c3824",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "--tb=short"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-full314-all-native-fixtures",
+      "original_log": "qlib-tests-full314-all-native-fixtures.log",
+      "log_sha256": "983e365d3f9bff06ceb66cd404e43905dbfde649ef76b35fea0f9dcb4e289da7",
+      "outcomes": [
+        "==== 13 failed, 697 passed, 1 skipped, 72740 warnings in 1959.88s (0:32:39) ===="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-full314-final-compatibility",
+      "original_log": "qlib-tests-full314-final-compatibility.log",
+      "log_sha256": "07eaa8dda06124fa80c670a902d2ecedd0e3a2eef0dd7abbe4ca3179f4cc23be",
+      "outcomes": [
+        "========= 705 passed, 1 skipped, 73442 warnings in 1401.09s (0:23:21) =========="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "--tb=short"
+      ],
+      "exit_code": 139,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-full314-native-owners",
+      "original_log": "qlib-tests-full314-native-owners.log",
+      "log_sha256": "c1ae264f3d3139ad563ece089524e170de91ba2e266834390335cc528ca1f97f",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "--tb=short"
+      ],
+      "exit_code": 143,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-full314-policy-online-final",
+      "original_log": "qlib-tests-full314-policy-online-final.log",
+      "log_sha256": "81c546c8efd6f385e338c3ae0b631d805ef723af1f020e83eaa493d7da5a0f70",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests",
+        "--lf",
+        "-x"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-last-failures",
+      "original_log": "qlib-tests-last-failures.log",
+      "log_sha256": "c6614d7c74837648835928373890c39ac25d435ee83d9b67d12bc0a640534d31",
+      "outcomes": [
+        "============= 1 failed, 4 passed, 1 skipped, 4 warnings in 35.74s =============="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "tests/rolling_tests/test_update_pred.py",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-online-native-owner",
+      "original_log": "qlib-tests-online-native-owner.log",
+      "log_sha256": "d7a702fe43fb471586090e1b5c46652dbe64ae003059455134961d6e96072bb5",
+      "outcomes": [
+        "================= 2 passed, 3309 warnings in 289.05s (0:04:49) ================="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_contrib_workflow.py",
+        "tests/test_all_pipeline.py",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-pipeline-fixture-owners",
+      "original_log": "qlib-tests-pipeline-fixture-owners.log",
+      "log_sha256": "57ee8fe9cb6913fc8f7b09aaa6bcea976b6ece0770913abfad749b9628cf5480",
+      "outcomes": [
+        "================ 5 passed, 15754 warnings in 384.54s (0:06:24) ================="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "--python",
+        "3.13.16",
+        "pytest",
+        "--tb=short"
+      ],
+      "exit_code": 139,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-python313-ci-data",
+      "original_log": "qlib-tests-python313-ci-data.log",
+      "log_sha256": "04d491bbe0ae755c99133ea57b01f40c34b3b4acc4cd55229efff2206073c9d1",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "env",
+        "MLFLOW_ENABLE_FILE_SYSTEM_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests/dependency_tests/test_mlflow.py",
+        "tests/rl/test_qlib_simulator.py",
+        "tests/rl/test_saoe_simple.py",
+        "--tb=short"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-rl-data-mlflow-diagnosis",
+      "original_log": "qlib-tests-rl-data-mlflow-diagnosis.log",
+      "log_sha256": "aaf64e78f7d1f3d5d6d68dcab7b1bf6af37d0c3019969292dc4cb33ec42c4fe3",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "tests/rl/test_saoe_simple.py",
+        "--tb=short"
+      ],
+      "exit_code": 1,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-saoe-current-api",
+      "original_log": "qlib-tests-saoe-current-api.log",
+      "log_sha256": "5ba50c1e9ef32e8bbb6dd555b31eda961b3d8a0d7586093e0228fe2e729b3e4b",
+      "outcomes": [
+        "============ 1 failed, 11 passed, 136 warnings in 95.99s (0:01:35) ============="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "tests/rl/test_saoe_simple.py",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-saoe-wrapper-info-final",
+      "original_log": "qlib-tests-saoe-wrapper-info-final.log",
+      "log_sha256": "20ee9603bdb3d07df7070fffefc1b3d4f3f526ab99b049d690b0f1144e5ae6e2",
+      "outcomes": [
+        "================= 12 passed, 138 warnings in 117.77s (0:01:57) ================="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "-v",
+        "--tb=short",
+        "tests/security/test_artifact_reader_trust.py",
+        "tests/security/test_eval_registries.py",
+        "tests/test_ci_configuration.py"
+      ],
+      "exit_code": 139,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-security-ci-final-compatible",
+      "original_log": "qlib-tests-security-ci-final-compatible.log",
+      "log_sha256": "108b731546c2826be7c326a3a91ca6640c1c3f3f083843c112a3447dce71390e",
+      "outcomes": []
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "-v",
+        "--tb=short",
+        "tests/security/test_artifact_reader_trust.py",
+        "tests/security/test_eval_registries.py",
+        "tests/test_ci_configuration.py"
+      ],
+      "exit_code": 0,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-security-ci-final-native-pool",
+      "original_log": "qlib-tests-security-ci-final-native-pool.log",
+      "log_sha256": "1f1b60c52b14c7428578293c77ef727ca1036dd31eabe227d66da4361a6c115f",
+      "outcomes": [
+        "============= 51 passed, 573 warnings, 82 subtests passed in 7.29s ============="
+      ]
+    },
+    {
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "tests"
+      ],
+      "exit_code": 139,
+      "cwd": "<workspace>/qlib",
+      "check": "tests-with-ci-data",
+      "original_log": "qlib-tests-with-ci-data.log",
+      "log_sha256": "019e45ac82b3b378710d75bee99ce6815ef5f3bcb5ecf91d5611aeed99e024c2",
+      "outcomes": []
+    }
+  ],
+  "summary": {
+    "repo": "qlib",
+    "status": "complete",
+    "branch": "feature/ayu_develop",
+    "head": "1f20a70638675848158325a2425227d12f78157f",
+    "selected_python": "3.14.8",
+    "uv_version": "0.13.0",
+    "rust_version": null,
+    "build": {
+      "repo": "qlib",
+      "step": "build-ci-compatible-final",
+      "command": [
+        "uv",
+        "build"
+      ],
+      "cwd": "<workspace>/qlib",
+      "started": 1791747117.177438,
+      "log": "<workspace>/docs/maintenance-2026-10-12/qlib-build-ci-compatible-final.log",
+      "exit_code": 0,
+      "elapsed_seconds": 12.1
+    },
+    "full_tests": {
+      "repo": "qlib",
+      "step": "tests-full314-final-compatibility",
+      "command": [
+        "env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "MLFLOW_ALLOW_FILE_STORE=true",
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "-m",
+        "pytest",
+        "--tb=short"
+      ],
+      "cwd": "<workspace>/qlib",
+      "started": 1791747169.591228,
+      "log": "<workspace>/docs/maintenance-2026-10-12/qlib-tests-full314-final-compatibility.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1403.73
+    },
+    "summary": "The complete original706case inventory passes on Python3.14.8:705passed,1existing skipped,73442visible warnings; exit0 in1403.73seconds. Latest compatible all-group/all-extra lock and sync, native Cython wheel/source builds, and source compilation pass. Official CI cn_data and RL fixtures were downloaded before testing. macOS spawn-safe manager queues, picklable factories/collation, and PPO missing-info handling preserve the complete RL cases. Existing tiny training fixtures own one native worker while retaining every date, tree, calculation and assertion. Security collectors count the exact UnsafeArtifactWarning category; unrelated dependency warnings remain visible. Plotly6.9 is the latest release retaining create_distplot, Pandas2.3.3 preserves the restricted artifact graph without permitting builtins.getattr, and Tianshou0.4.11 retains the four-value Gym contract. Current CI matrices test all five operating-system jobs on3.13/3.14, retaining Windows native solver constraints and precise exclusions for known bad dependency releases. Earlier full timeout,314/313native crashes, and the697pass13fail1skip full result remain recorded;3.13 was not selected after its actual failure.",
+    "documentation": [
+      "docs/ayu-develop.md",
+      "docs/ayu-develop.html",
+      "docs/development.md",
+      "docs/development.html",
+      "docs/validation.md",
+      "docs/validation.html"
+    ],
+    "source_links": 12,
+    "diagram_count": 6,
+    "sync_evidence": "<workspace>/docs/maintenance-2026-10-12/qlib-sync.json",
+    "feature_pushed": false,
+    "commit": "1f20a70638675848158325a2425227d12f78157f",
+    "test_counts": {
+      "collected": 706,
+      "passed": 705,
+      "skipped": 1,
+      "failed": 0,
+      "warnings": 73442
+    },
+    "full_tests_pass": true,
+    "remaining_blockers": [],
+    "python315_supported": false
+  },
+  "note": "Full raw logs are retained in the workspace maintenance evidence, not distributed here. Hashes identify those original logs. A successful build or selected test subset does not imply a full test-suite pass. Commands containing <workspace> describe the original execution environment."
+}

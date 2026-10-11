@@ -12,63 +12,63 @@ Current recorded status: **complete**. Interpreter fallback evidence and native 
 
 | Step | Exact command | Exit | Elapsed seconds | Evidence |
 |---|---|---:|---:|---|
-| python315-sync | `uv sync --python 3.15 --all-groups --all-extras` | 2 | unrecorded | [qlib-python315-sync.log](../../docs/maintenance-2026-10-12/qlib-python315-sync.log) |
-| python315-lock | `uv lock --upgrade --python 3.15` | 0 | unrecorded | [qlib-python315-lock.log](../../docs/maintenance-2026-10-12/qlib-python315-lock.log) |
-| tests | `uv run --no-sync pytest tests` | 124 | 900.08 | [qlib-tests.log](../../docs/maintenance-2026-10-12/qlib-tests.log) |
-| build | `uv build` | 0 | 13.11 | [qlib-build.log](../../docs/maintenance-2026-10-12/qlib-build.log) |
-| python3148-sync | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 29.36 | [qlib-python3148-sync.log](../../docs/maintenance-2026-10-12/qlib-python3148-sync.log) |
-| tests-last-failures | `uv run --no-sync pytest tests --lf -x` | 1 | 42.27 | [qlib-tests-last-failures.log](../../docs/maintenance-2026-10-12/qlib-tests-last-failures.log) |
-| dataset-ci-download | `uv run --no-sync python scripts/get_data.py download_data --file_name v2/qlib_data_simple_cn_1d_latest.zip --target_dir /Users/alex/.qlib/qlib_data/cn_data --delete_old False` | 0 | 7.01 | [qlib-dataset-ci-download.log](../../docs/maintenance-2026-10-12/qlib-dataset-ci-download.log) |
-| tests-with-ci-data | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests` | 139 | 1247.82 | [qlib-tests-with-ci-data.log](../../docs/maintenance-2026-10-12/qlib-tests-with-ci-data.log) |
-| build-final | `uv build` | 0 | 33.76 | [qlib-build-final.log](../../docs/maintenance-2026-10-12/qlib-build-final.log) |
-| handler-current-data | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py -x` | 1 | 3.59 | [qlib-handler-current-data.log](../../docs/maintenance-2026-10-12/qlib-handler-current-data.log) |
-| handler-pandas-public-aliases | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py -x` | 1 | 3.35 | [qlib-handler-pandas-public-aliases.log](../../docs/maintenance-2026-10-12/qlib-handler-pandas-public-aliases.log) |
-| handler-arrow-string | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py -x` | 1 | 4.34 | [qlib-handler-arrow-string.log](../../docs/maintenance-2026-10-12/qlib-handler-arrow-string.log) |
-| rl-diagnostic | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py -x` | 1 | 10.95 | [qlib-rl-diagnostic.log](../../docs/maintenance-2026-10-12/qlib-rl-diagnostic.log) |
-| handler-arrow-reconstruct | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py -x` | 1 | 3.26 | [qlib-handler-arrow-reconstruct.log](../../docs/maintenance-2026-10-12/qlib-handler-arrow-reconstruct.log) |
-| handler-array-public-aliases | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py -x` | 1 | 7.59 | [qlib-handler-array-public-aliases.log](../../docs/maintenance-2026-10-12/qlib-handler-array-public-aliases.log) |
-| security-pandas3-aliases | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py` | 1 | 5.01 | [qlib-security-pandas3-aliases.log](../../docs/maintenance-2026-10-12/qlib-security-pandas3-aliases.log) |
-| rl-manager-spawn | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py -x` | 1 | 12.64 | [qlib-rl-manager-spawn.log](../../docs/maintenance-2026-10-12/qlib-rl-manager-spawn.log) |
-| queue-manager-spawn | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_data_queue.py` | 1 | 15.75 | [qlib-queue-manager-spawn.log](../../docs/maintenance-2026-10-12/qlib-queue-manager-spawn.log) |
-| security-public-scalars | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py` | 1 | 4.58 | [qlib-security-public-scalars.log](../../docs/maintenance-2026-10-12/qlib-security-public-scalars.log) |
-| python-shimmy-upgrade | `uv lock --upgrade --python 3.14.8` | 0 | 4.48 | [qlib-python-shimmy-upgrade.log](../../docs/maintenance-2026-10-12/qlib-python-shimmy-upgrade.log) |
-| python-shimmy-sync | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 7.33 | [qlib-python-shimmy-sync.log](../../docs/maintenance-2026-10-12/qlib-python-shimmy-sync.log) |
-| rl-spawn-compatible | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py tests/rl/test_data_queue.py` | 1 | 37.51 | [qlib-rl-spawn-compatible.log](../../docs/maintenance-2026-10-12/qlib-rl-spawn-compatible.log) |
-| python-tianshou-compatible | `uv lock --upgrade --python 3.14.8` | 0 | 2.78 | [qlib-python-tianshou-compatible.log](../../docs/maintenance-2026-10-12/qlib-python-tianshou-compatible.log) |
-| python-final-compatible-sync | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 8.33 | [qlib-python-final-compatible-sync.log](../../docs/maintenance-2026-10-12/qlib-python-final-compatible-sync.log) |
-| rl-latest-compatible | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py tests/rl/test_data_queue.py -x` | 1 | 70.43 | [qlib-rl-latest-compatible.log](../../docs/maintenance-2026-10-12/qlib-rl-latest-compatible.log) |
-| rl-worker-owned-state | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py tests/rl/test_data_queue.py` | 0 | 115.42 | [qlib-rl-worker-owned-state.log](../../docs/maintenance-2026-10-12/qlib-rl-worker-owned-state.log) |
-| security-pandas2-compatible | `uv run --no-sync --with 'pandas<3' pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py` | 0 | 14.44 | [qlib-security-pandas2-compatible.log](../../docs/maintenance-2026-10-12/qlib-security-pandas2-compatible.log) |
-| python-pandas-compatible-upgrade | `uv lock --upgrade --python 3.14.8` | 0 | 5.72 | [qlib-python-pandas-compatible-upgrade.log](../../docs/maintenance-2026-10-12/qlib-python-pandas-compatible-upgrade.log) |
-| python-pandas-compatible-sync | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 7.84 | [qlib-python-pandas-compatible-sync.log](../../docs/maintenance-2026-10-12/qlib-python-pandas-compatible-sync.log) |
-| python-pandas-final-upgrade | `uv lock --upgrade --python 3.14.8` | 0 | 3.18 | [qlib-python-pandas-final-upgrade.log](../../docs/maintenance-2026-10-12/qlib-python-pandas-final-upgrade.log) |
-| python-pandas-final-sync | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 7.84 | [qlib-python-pandas-final-sync.log](../../docs/maintenance-2026-10-12/qlib-python-pandas-final-sync.log) |
-| tests-final-compatible | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ENABLE_FILE_SYSTEM_STORE=true uv run --no-sync pytest` | 139 | 1011.29 | [qlib-tests-final-compatible.log](../../docs/maintenance-2026-10-12/qlib-tests-final-compatible.log) |
-| build-compatible-final | `uv build` | 0 | 25.27 | [qlib-build-compatible-final.log](../../docs/maintenance-2026-10-12/qlib-build-compatible-final.log) |
-| tests-rl-data-mlflow-diagnosis | `env MLFLOW_ENABLE_FILE_SYSTEM_STORE=true uv run --no-sync pytest tests/dependency_tests/test_mlflow.py tests/rl/test_qlib_simulator.py tests/rl/test_saoe_simple.py --tb=short` | 1 | 7.84 | [qlib-tests-rl-data-mlflow-diagnosis.log](../../docs/maintenance-2026-10-12/qlib-tests-rl-data-mlflow-diagnosis.log) |
-| ci-rl-data-download | `uv run --no-sync python scripts/get_data.py download_data --file_name rl_data.zip --target_dir tests/.data/rl --delete_old False` | 0 | 51.82 | [qlib-ci-rl-data-download.log](../../docs/maintenance-2026-10-12/qlib-ci-rl-data-download.log) |
-| python313-fallback-sync | `uv sync --all-groups --all-extras --python 3.13.16` | 0 | 20.73 | [qlib-python313-fallback-sync.log](../../docs/maintenance-2026-10-12/qlib-python313-fallback-sync.log) |
-| tests-python313-ci-data | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync --python 3.13.16 pytest --tb=short` | 139 | 1745.85 | [qlib-tests-python313-ci-data.log](../../docs/maintenance-2026-10-12/qlib-tests-python313-ci-data.log) |
-| compileall-python313 | `uv run --no-sync python -m compileall -q qlib` | 0 | 0.35 | [qlib-compileall-python313.log](../../docs/maintenance-2026-10-12/qlib-compileall-python313.log) |
-| sync-restored314-ci-data | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 9.11 | [qlib-sync-restored314-ci-data.log](../../docs/maintenance-2026-10-12/qlib-sync-restored314-ci-data.log) |
-| tests-ddgda-single-native-owner | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rolling_tests/test_ddgda.py --tb=short` | 0 | 79.94 | [qlib-tests-ddgda-single-native-owner.log](../../docs/maintenance-2026-10-12/qlib-tests-ddgda-single-native-owner.log) |
-| tests-full314-native-owners | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short` | 139 | 1271.53 | [qlib-tests-full314-native-owners.log](../../docs/maintenance-2026-10-12/qlib-tests-full314-native-owners.log) |
-| tests-saoe-current-api | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rl/test_saoe_simple.py --tb=short` | 1 | 98.11 | [qlib-tests-saoe-current-api.log](../../docs/maintenance-2026-10-12/qlib-tests-saoe-current-api.log) |
-| tests-saoe-wrapper-info-final | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rl/test_saoe_simple.py --tb=short` | 0 | 119.9 | [qlib-tests-saoe-wrapper-info-final.log](../../docs/maintenance-2026-10-12/qlib-tests-saoe-wrapper-info-final.log) |
-| build-policy-info-final | `uv build` | 0 | 13.09 | [qlib-build-policy-info-final.log](../../docs/maintenance-2026-10-12/qlib-build-policy-info-final.log) |
-| tests-online-native-owner | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rolling_tests/test_update_pred.py --tb=short` | 0 | 291.29 | [qlib-tests-online-native-owner.log](../../docs/maintenance-2026-10-12/qlib-tests-online-native-owner.log) |
-| tests-full314-policy-online-final | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short` | 143 | 56.33 | [qlib-tests-full314-policy-online-final.log](../../docs/maintenance-2026-10-12/qlib-tests-full314-policy-online-final.log) |
-| tests-full314-all-native-fixtures | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short` | 1 | 1963.01 | [qlib-tests-full314-all-native-fixtures.log](../../docs/maintenance-2026-10-12/qlib-tests-full314-all-native-fixtures.log) |
-| tests-pipeline-fixture-owners | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/test_contrib_workflow.py tests/test_all_pipeline.py --tb=short` | 0 | 386.76 | [qlib-tests-pipeline-fixture-owners.log](../../docs/maintenance-2026-10-12/qlib-tests-pipeline-fixture-owners.log) |
-| compileall-policy-fixtures-final | `uv run --no-sync python -m compileall -q qlib tests` | 0 | 0.43 | [qlib-compileall-policy-fixtures-final.log](../../docs/maintenance-2026-10-12/qlib-compileall-policy-fixtures-final.log) |
-| tests-ci-modern-policy | `uv run --no-sync python -m pytest -v --tb=short tests/test_ci_configuration.py` | 1 | 0.55 | [qlib-tests-ci-modern-policy.log](../../docs/maintenance-2026-10-12/qlib-tests-ci-modern-policy.log) |
-| lock-ci-modern-compatible | `uv lock --upgrade` | 0 | 3.14 | [qlib-lock-ci-modern-compatible.log](../../docs/maintenance-2026-10-12/qlib-lock-ci-modern-compatible.log) |
-| sync-ci-modern-compatible | `uv sync --all-groups --all-extras --frozen --python 3.14.8` | 0 | 6.04 | [qlib-sync-ci-modern-compatible.log](../../docs/maintenance-2026-10-12/qlib-sync-ci-modern-compatible.log) |
-| tests-security-ci-final-compatible | `env MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest -v --tb=short tests/security/test_artifact_reader_trust.py tests/security/test_eval_registries.py tests/test_ci_configuration.py` | 139 | 5.88 | [qlib-tests-security-ci-final-compatible.log](../../docs/maintenance-2026-10-12/qlib-tests-security-ci-final-compatible.log) |
-| build-ci-compatible-final | `uv build` | 0 | 12.1 | [qlib-build-ci-compatible-final.log](../../docs/maintenance-2026-10-12/qlib-build-ci-compatible-final.log) |
-| tests-security-ci-final-native-pool | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest -v --tb=short tests/security/test_artifact_reader_trust.py tests/security/test_eval_registries.py tests/test_ci_configuration.py` | 0 | 9.05 | [qlib-tests-security-ci-final-native-pool.log](../../docs/maintenance-2026-10-12/qlib-tests-security-ci-final-native-pool.log) |
-| tests-full314-final-compatibility | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short` | 0 | 1403.73 | [qlib-tests-full314-final-compatibility.log](../../docs/maintenance-2026-10-12/qlib-tests-full314-final-compatibility.log) |
-| compileall-ci-current-final | `uv run --no-sync python -m compileall -q qlib` | 0 | 0.19 | [qlib-compileall-ci-current-final.log](../../docs/maintenance-2026-10-12/qlib-compileall-ci-current-final.log) |
+| python315-sync | `uv sync --python 3.15 --all-groups --all-extras` | 2 | unrecorded | [check record](maintenance/index.html) |
+| python315-lock | `uv lock --upgrade --python 3.15` | 0 | unrecorded | [check record](maintenance/index.html) |
+| tests | `uv run --no-sync pytest tests` | 124 | 900.08 | [check record](maintenance/index.html) |
+| build | `uv build` | 0 | 13.11 | [check record](maintenance/index.html) |
+| python3148-sync | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 29.36 | [check record](maintenance/index.html) |
+| tests-last-failures | `uv run --no-sync pytest tests --lf -x` | 1 | 42.27 | [check record](maintenance/index.html) |
+| dataset-ci-download | `uv run --no-sync python scripts/get_data.py download_data --file_name v2/qlib_data_simple_cn_1d_latest.zip --target_dir /Users/alex/.qlib/qlib_data/cn_data --delete_old False` | 0 | 7.01 | [check record](maintenance/index.html) |
+| tests-with-ci-data | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests` | 139 | 1247.82 | [check record](maintenance/index.html) |
+| build-final | `uv build` | 0 | 33.76 | [check record](maintenance/index.html) |
+| handler-current-data | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py -x` | 1 | 3.59 | [check record](maintenance/index.html) |
+| handler-pandas-public-aliases | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py -x` | 1 | 3.35 | [check record](maintenance/index.html) |
+| handler-arrow-string | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py -x` | 1 | 4.34 | [check record](maintenance/index.html) |
+| rl-diagnostic | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py -x` | 1 | 10.95 | [check record](maintenance/index.html) |
+| handler-arrow-reconstruct | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py -x` | 1 | 3.26 | [check record](maintenance/index.html) |
+| handler-array-public-aliases | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py -x` | 1 | 7.59 | [check record](maintenance/index.html) |
+| security-pandas3-aliases | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py` | 1 | 5.01 | [check record](maintenance/index.html) |
+| rl-manager-spawn | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py -x` | 1 | 12.64 | [check record](maintenance/index.html) |
+| queue-manager-spawn | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_data_queue.py` | 1 | 15.75 | [check record](maintenance/index.html) |
+| security-public-scalars | `uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py` | 1 | 4.58 | [check record](maintenance/index.html) |
+| python-shimmy-upgrade | `uv lock --upgrade --python 3.14.8` | 0 | 4.48 | [check record](maintenance/index.html) |
+| python-shimmy-sync | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 7.33 | [check record](maintenance/index.html) |
+| rl-spawn-compatible | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py tests/rl/test_data_queue.py` | 1 | 37.51 | [check record](maintenance/index.html) |
+| python-tianshou-compatible | `uv lock --upgrade --python 3.14.8` | 0 | 2.78 | [check record](maintenance/index.html) |
+| python-final-compatible-sync | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 8.33 | [check record](maintenance/index.html) |
+| rl-latest-compatible | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py tests/rl/test_data_queue.py -x` | 1 | 70.43 | [check record](maintenance/index.html) |
+| rl-worker-owned-state | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py tests/rl/test_data_queue.py` | 0 | 115.42 | [check record](maintenance/index.html) |
+| security-pandas2-compatible | `uv run --no-sync --with 'pandas<3' pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py` | 0 | 14.44 | [check record](maintenance/index.html) |
+| python-pandas-compatible-upgrade | `uv lock --upgrade --python 3.14.8` | 0 | 5.72 | [check record](maintenance/index.html) |
+| python-pandas-compatible-sync | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 7.84 | [check record](maintenance/index.html) |
+| python-pandas-final-upgrade | `uv lock --upgrade --python 3.14.8` | 0 | 3.18 | [check record](maintenance/index.html) |
+| python-pandas-final-sync | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 7.84 | [check record](maintenance/index.html) |
+| tests-final-compatible | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ENABLE_FILE_SYSTEM_STORE=true uv run --no-sync pytest` | 139 | 1011.29 | [check record](maintenance/index.html) |
+| build-compatible-final | `uv build` | 0 | 25.27 | [check record](maintenance/index.html) |
+| tests-rl-data-mlflow-diagnosis | `env MLFLOW_ENABLE_FILE_SYSTEM_STORE=true uv run --no-sync pytest tests/dependency_tests/test_mlflow.py tests/rl/test_qlib_simulator.py tests/rl/test_saoe_simple.py --tb=short` | 1 | 7.84 | [check record](maintenance/index.html) |
+| ci-rl-data-download | `uv run --no-sync python scripts/get_data.py download_data --file_name rl_data.zip --target_dir tests/.data/rl --delete_old False` | 0 | 51.82 | [check record](maintenance/index.html) |
+| python313-fallback-sync | `uv sync --all-groups --all-extras --python 3.13.16` | 0 | 20.73 | [check record](maintenance/index.html) |
+| tests-python313-ci-data | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync --python 3.13.16 pytest --tb=short` | 139 | 1745.85 | [check record](maintenance/index.html) |
+| compileall-python313 | `uv run --no-sync python -m compileall -q qlib` | 0 | 0.35 | [check record](maintenance/index.html) |
+| sync-restored314-ci-data | `uv sync --all-groups --all-extras --python 3.14.8` | 0 | 9.11 | [check record](maintenance/index.html) |
+| tests-ddgda-single-native-owner | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rolling_tests/test_ddgda.py --tb=short` | 0 | 79.94 | [check record](maintenance/index.html) |
+| tests-full314-native-owners | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short` | 139 | 1271.53 | [check record](maintenance/index.html) |
+| tests-saoe-current-api | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rl/test_saoe_simple.py --tb=short` | 1 | 98.11 | [check record](maintenance/index.html) |
+| tests-saoe-wrapper-info-final | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rl/test_saoe_simple.py --tb=short` | 0 | 119.9 | [check record](maintenance/index.html) |
+| build-policy-info-final | `uv build` | 0 | 13.09 | [check record](maintenance/index.html) |
+| tests-online-native-owner | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rolling_tests/test_update_pred.py --tb=short` | 0 | 291.29 | [check record](maintenance/index.html) |
+| tests-full314-policy-online-final | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short` | 143 | 56.33 | [check record](maintenance/index.html) |
+| tests-full314-all-native-fixtures | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short` | 1 | 1963.01 | [check record](maintenance/index.html) |
+| tests-pipeline-fixture-owners | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/test_contrib_workflow.py tests/test_all_pipeline.py --tb=short` | 0 | 386.76 | [check record](maintenance/index.html) |
+| compileall-policy-fixtures-final | `uv run --no-sync python -m compileall -q qlib tests` | 0 | 0.43 | [check record](maintenance/index.html) |
+| tests-ci-modern-policy | `uv run --no-sync python -m pytest -v --tb=short tests/test_ci_configuration.py` | 1 | 0.55 | [check record](maintenance/index.html) |
+| lock-ci-modern-compatible | `uv lock --upgrade` | 0 | 3.14 | [check record](maintenance/index.html) |
+| sync-ci-modern-compatible | `uv sync --all-groups --all-extras --frozen --python 3.14.8` | 0 | 6.04 | [check record](maintenance/index.html) |
+| tests-security-ci-final-compatible | `env MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest -v --tb=short tests/security/test_artifact_reader_trust.py tests/security/test_eval_registries.py tests/test_ci_configuration.py` | 139 | 5.88 | [check record](maintenance/index.html) |
+| build-ci-compatible-final | `uv build` | 0 | 12.1 | [check record](maintenance/index.html) |
+| tests-security-ci-final-native-pool | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest -v --tb=short tests/security/test_artifact_reader_trust.py tests/security/test_eval_registries.py tests/test_ci_configuration.py` | 0 | 9.05 | [check record](maintenance/index.html) |
+| tests-full314-final-compatibility | `env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short` | 0 | 1403.73 | [check record](maintenance/index.html) |
+| compileall-ci-current-final | `uv run --no-sync python -m compileall -q qlib` | 0 | 0.19 | [check record](maintenance/index.html) |
 
 ## Test summaries and failures
 
@@ -88,7 +88,7 @@ tests/misc/test_get_multi_proc.py .                                      [  2%]
 tests/misc/test_index_data.py .......                                    [  3%]
 tests/misc/test_sepdf.py .                                               [  3%]
 tests/misc/test_utils.py ..                                              [  4%]
-tests/model/test_general_nn.py 
+tests/model/test_general_nn.py
 ```
 
 ### tests-last-failures
@@ -105,7 +105,7 @@ FAILED tests/data_mid_layer_tests/test_dataloader.py::TestDataLoader::test_neste
 Exit 139; elapsed 1247.82seconds.
 
 ```text
-tests/rolling_tests/test_ddgda.py Fatal Python error: Segmentation faultFatal Python error: 
+tests/rolling_tests/test_ddgda.py Fatal Python error: Segmentation faultFatal Python error:
 ```
 
 ### rl-latest-compatible
@@ -122,7 +122,7 @@ FAILED tests/rl/test_trainer.py::test_trainer_fast_dev_run - ReferenceError: ...
 Exit 139; elapsed 1011.29seconds.
 
 ```text
-tests/rolling_tests/test_ddgda.py Fatal Python error: Segmentation faultFatal Python error: 
+tests/rolling_tests/test_ddgda.py Fatal Python error: Segmentation faultFatal Python error:
 ```
 
 ### tests-rl-data-mlflow-diagnosis
@@ -231,7 +231,7 @@ tests/backtest/test_file_strategy.py .                                   [  0%]
 tests/backtest/test_high_freq_trading.py s                               [  0%]
 tests/backtest/test_soft_topk_strategy.py .                              [  0%]
 tests/backtest/test_soft_topk_strategy_cold_start.py ..                  [  0%]
-tests/data_mid_layer_tests/test_dataloader.py 
+tests/data_mid_layer_tests/test_dataloader.py
 ```
 
 ### tests-full314-all-native-fixtures

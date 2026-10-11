@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>qlib: portable verification records</title><style>
+:root{color-scheme:light dark;--bg:#f6f8fa;--paper:#fff;--fg:#182332;--muted:#526274;--line:#d9e0e7;--accent:#1769aa}
+@media(prefers-color-scheme:dark){:root{--bg:#111820;--paper:#192330;--fg:#e6edf3;--muted:#a0b3c5;--line:#344354;--accent:#71b7ee}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 system-ui,-apple-system,sans-serif}
+header{border-bottom:1px solid var(--line);padding:16px max(24px,calc((100vw - 1120px)/2));background:var(--paper);font-size:14px}
+main{max-width:1120px;margin:32px auto;padding:40px 48px;background:var(--paper);border:1px solid var(--line);border-radius:12px}
+h1,h2,h3,h4{line-height:1.3;scroll-margin-top:24px}h1{font-size:2.1rem}h2{margin-top:2.5em;border-bottom:1px solid var(--line);padding-bottom:.35em}h3{margin-top:1.8em}
+a{color:var(--accent);text-underline-offset:3px}code{font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg);border-radius:4px;padding:2px 5px}pre{overflow:auto;border:1px solid var(--line);background:var(--bg);padding:16px;border-radius:7px}pre code{padding:0;background:none}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto;font-size:14px}th,td{border:1px solid var(--line);padding:9px 12px;text-align:left}th{background:var(--bg)}blockquote{border-left:4px solid var(--accent);margin:16px 0;padding:4px 20px;color:var(--muted)}
+.diagram{overflow-x:auto;margin:24px 0;padding:20px;border:1px solid var(--line);border-radius:8px;background:#fff;color:#182332}.mermaid{border:0;background:none;text-align:center}.mermaid svg{height:auto;max-width:100%}details{font-size:13px;color:#526274}.headerlink{margin-left:.4em;font-size:.7em;text-decoration:none;color:var(--muted)}
+main{min-width:0;overflow-wrap:anywhere}table,pre{max-width:100%}.diagram svg{display:block}
+th,td{min-width:120px;overflow-wrap:normal}
+@media(max-width:740px){main{margin:0;padding:24px 18px;border:0;border-radius:0}h1{font-size:1.7rem}.diagram{padding:8px}}
+@media print{header,details,.headerlink{display:none}body,main{background:#fff;color:#000;border:0;margin:0;padding:0}a{color:#000}.diagram,pre{break-inside:avoid}}
+</style></head><body><header>Engineering documentation · <a href="index.md">Markdown source</a></header><main><h1 id="qlib-portable-verification-records">qlib: portable verification records<a class="headerlink" href="#qlib-portable-verification-records" title="Permanent link">&para;</a></h1>
+<p>Full raw logs are retained in the workspace maintenance evidence, not distributed here. Hashes identify those original logs. A successful build or selected test subset does not imply a full test-suite pass. Commands containing <workspace> describe the original execution environment.</p>
+<p><a href="verification.json">Machine-readable records</a> · <a href="../validation.md">Repository validation summary</a></p>
+<h2 id="executed-commands">Executed commands<a class="headerlink" href="#executed-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th style="text-align: right;">Exit</th>
+<th style="text-align: right;">Duration</th>
+<th>Command</th>
+<th>Outcomes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>build</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv build</code></td>
+<td>Successfully built dist/pyqlib-0.9.9.dev0.tar.gz<br>Successfully built dist/pyqlib-0.9.9.dev0-cp314-cp314-macosx_12_0_arm64.whl</td>
+</tr>
+<tr>
+<td>build-ci-compatible-final</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv build</code></td>
+<td>Successfully built dist/pyqlib-0.9.9.dev0.tar.gz<br>Successfully built dist/pyqlib-0.9.9.dev0-cp314-cp314-macosx_11_0_arm64.whl</td>
+</tr>
+<tr>
+<td>build-compatible-final</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv build</code></td>
+<td>Successfully built dist/pyqlib-0.9.9.dev0.tar.gz<br>Successfully built dist/pyqlib-0.9.9.dev0-cp314-cp314-macosx_11_0_arm64.whl</td>
+</tr>
+<tr>
+<td>build-final</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv build</code></td>
+<td>Successfully built dist/pyqlib-0.9.9.dev0.tar.gz<br>Successfully built dist/pyqlib-0.9.9.dev0-cp314-cp314-macosx_11_0_arm64.whl</td>
+</tr>
+<tr>
+<td>build-policy-info-final</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv build</code></td>
+<td>Successfully built dist/pyqlib-0.9.9.dev0.tar.gz<br>Successfully built dist/pyqlib-0.9.9.dev0-cp314-cp314-macosx_11_0_arm64.whl</td>
+</tr>
+<tr>
+<td>ci-rl-data-download</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync python scripts/get_data.py download_data --file_name rl_data.zip --target_dir tests/.data/rl --delete_old False</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>compileall-ci-current-final</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync python -m compileall -q qlib</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>compileall-policy-fixtures-final</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync python -m compileall -q qlib tests</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>compileall-python313</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync python -m compileall -q qlib</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>dataset-ci-download</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync python scripts/get_data.py download_data --file_name v2/qlib_data_simple_cn_1d_latest.zip --target_dir /Users/alex/.qlib/qlib_data/cn_data --delete_old False</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>handler-array-public-aliases</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py -x</code></td>
+<td>========================= 1 failed, 64 passed in 5.90s =========================</td>
+</tr>
+<tr>
+<td>handler-arrow-reconstruct</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py -x</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>handler-arrow-string</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py -x</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>handler-current-data</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py -x</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>handler-pandas-public-aliases</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py -x</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>lock-ci-modern-compatible</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv lock --upgrade</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python-final-compatible-sync</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv sync --all-groups --all-extras --python 3.14.8</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python-pandas-compatible-sync</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv sync --all-groups --all-extras --python 3.14.8</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python-pandas-compatible-upgrade</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv lock --upgrade --python 3.14.8</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python-pandas-final-sync</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv sync --all-groups --all-extras --python 3.14.8</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python-pandas-final-upgrade</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv lock --upgrade --python 3.14.8</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python-shimmy-sync</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv sync --all-groups --all-extras --python 3.14.8</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python-shimmy-upgrade</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv lock --upgrade --python 3.14.8</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python-tianshou-compatible</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv lock --upgrade --python 3.14.8</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python313-fallback-sync</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv sync --all-groups --all-extras --python 3.13.16</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python3148-sync</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv sync --all-groups --all-extras --python 3.14.8</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python315-lock</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv lock --upgrade --python 3.15</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>python315-sync</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv sync --python 3.15 --all-groups --all-extras</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>queue-manager-spawn</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_data_queue.py</code></td>
+<td>=================== 3 failed, 1 passed, 3 warnings in 14.60s ===================</td>
+</tr>
+<tr>
+<td>rl-diagnostic</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py -x</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>rl-latest-compatible</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py tests/rl/test_data_queue.py -x</code></td>
+<td>============== 1 failed, 1 passed, 1 warning in 68.90s (0:01:08) ===============</td>
+</tr>
+<tr>
+<td>rl-manager-spawn</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py -x</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>rl-spawn-compatible</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py tests/rl/test_data_queue.py</code></td>
+<td>=================== 4 failed, 4 passed, 3 warnings in 35.96s ===================</td>
+</tr>
+<tr>
+<td>rl-worker-owned-state</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests/rl/test_trainer.py tests/rl/test_data_queue.py</code></td>
+<td>=================== 8 passed, 1 warning in 113.71s (0:01:53) ===================</td>
+</tr>
+<tr>
+<td>security-pandas2-compatible</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync --with pandas&lt;3 pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py</code></td>
+<td>======================= 139 passed, 4 warnings in 9.27s ========================</td>
+</tr>
+<tr>
+<td>security-pandas3-aliases</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py</code></td>
+<td>======================== 14 failed, 125 passed in 3.69s ========================</td>
+</tr>
+<tr>
+<td>security-public-scalars</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync pytest tests/data_mid_layer_tests/test_handler.py tests/security/test_pickle_utils.py</code></td>
+<td>======================== 4 failed, 135 passed in 3.19s =========================</td>
+</tr>
+<tr>
+<td>sync-ci-modern-compatible</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv sync --all-groups --all-extras --frozen --python 3.14.8</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>sync-restored314-ci-data</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv sync --all-groups --all-extras --python 3.14.8</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>tests</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync pytest tests</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>tests-ci-modern-policy</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync python -m pytest -v --tb=short tests/test_ci_configuration.py</code></td>
+<td>=============== 6 failed, 15 passed, 77 subtests passed in 0.15s ===============</td>
+</tr>
+<tr>
+<td>tests-ddgda-single-native-owner</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rolling_tests/test_ddgda.py --tb=short</code></td>
+<td>================ 17 passed, 10799 warnings in 77.67s (0:01:17) =================</td>
+</tr>
+<tr>
+<td>tests-final-compatible</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ENABLE_FILE_SYSTEM_STORE=true uv run --no-sync pytest</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>tests-full314-all-native-fixtures</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short</code></td>
+<td>==== 13 failed, 697 passed, 1 skipped, 72740 warnings in 1959.88s (0:32:39) ====</td>
+</tr>
+<tr>
+<td>tests-full314-final-compatibility</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short</code></td>
+<td>========= 705 passed, 1 skipped, 73442 warnings in 1401.09s (0:23:21) ==========</td>
+</tr>
+<tr>
+<td>tests-full314-native-owners</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>tests-full314-policy-online-final</td>
+<td style="text-align: right;">143</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest --tb=short</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>tests-last-failures</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>uv run --no-sync pytest tests --lf -x</code></td>
+<td>============= 1 failed, 4 passed, 1 skipped, 4 warnings in 35.74s ==============</td>
+</tr>
+<tr>
+<td>tests-online-native-owner</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rolling_tests/test_update_pred.py --tb=short</code></td>
+<td>================= 2 passed, 3309 warnings in 289.05s (0:04:49) =================</td>
+</tr>
+<tr>
+<td>tests-pipeline-fixture-owners</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/test_contrib_workflow.py tests/test_all_pipeline.py --tb=short</code></td>
+<td>================ 5 passed, 15754 warnings in 384.54s (0:06:24) =================</td>
+</tr>
+<tr>
+<td>tests-python313-ci-data</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync --python 3.13.16 pytest --tb=short</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>tests-rl-data-mlflow-diagnosis</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env MLFLOW_ENABLE_FILE_SYSTEM_STORE=true uv run --no-sync pytest tests/dependency_tests/test_mlflow.py tests/rl/test_qlib_simulator.py tests/rl/test_saoe_simple.py --tb=short</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>tests-saoe-current-api</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rl/test_saoe_simple.py --tb=short</code></td>
+<td>============ 1 failed, 11 passed, 136 warnings in 95.99s (0:01:35) =============</td>
+</tr>
+<tr>
+<td>tests-saoe-wrapper-info-final</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest tests/rl/test_saoe_simple.py --tb=short</code></td>
+<td>================= 12 passed, 138 warnings in 117.77s (0:01:57) =================</td>
+</tr>
+<tr>
+<td>tests-security-ci-final-compatible</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest -v --tb=short tests/security/test_artifact_reader_trust.py tests/security/test_eval_registries.py tests/test_ci_configuration.py</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+<tr>
+<td>tests-security-ci-final-native-pool</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 MLFLOW_ALLOW_FILE_STORE=true uv run --no-sync python -m pytest -v --tb=short tests/security/test_artifact_reader_trust.py tests/security/test_eval_registries.py tests/test_ci_configuration.py</code></td>
+<td>============= 51 passed, 573 warnings, 82 subtests passed in 7.29s =============</td>
+</tr>
+<tr>
+<td>tests-with-ci-data</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">unrecordeds</td>
+<td><code>env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 uv run --no-sync pytest tests</code></td>
+<td>See exit status; no test-count assertion.</td>
+</tr>
+</tbody>
+</table></main>
+</body></html>
