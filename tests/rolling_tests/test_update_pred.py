@@ -22,6 +22,8 @@ class TestRolling(TestAutoData):
         This test is for testing if it will raise error if the `to_date` is out of the boundary.
         """
         task = copy.deepcopy(CSI300_GBDT_TASK)
+        # Each fixture owns one native worker; retain all trees and predictions.
+        task["model"]["kwargs"]["num_threads"] = 1
 
         task["record"] = ["qlib.workflow.record_temp.SignalRecord"]
 
@@ -83,6 +85,8 @@ class TestRolling(TestAutoData):
     @pytest.mark.slow
     def test_update_label(self):
         task = copy.deepcopy(CSI300_GBDT_TASK)
+        # Each fixture owns one native worker; retain all trees and predictions.
+        task["model"]["kwargs"]["num_threads"] = 1
 
         task["record"] = {
             "class": "SignalRecord",

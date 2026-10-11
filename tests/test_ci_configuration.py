@@ -104,7 +104,7 @@ class TestCIConfiguration(unittest.TestCase):
                 job = workflow["jobs"]["build"]
                 self.assertFalse(job["strategy"]["fail-fast"])
                 matrix = job["strategy"]["matrix"]
-                self.assertEqual(set(matrix["python-version"]), {"3.8", "3.9", "3.10", "3.11", "3.12"})
+                self.assertEqual(set(matrix["python-version"]), {"3.13", "3.14"})
                 self.assertEqual(
                     set(matrix["os"]), {"windows-latest", "ubuntu-24.04", "ubuntu-22.04", "macos-14", "macos-15"}
                 )
@@ -260,8 +260,8 @@ class TestCIConfiguration(unittest.TestCase):
             with self.subTest(workflow=name):
                 steps = workflow["jobs"]["build"]["steps"]
                 self.assertTrue(any(step.get("run") == "python -m pip check" for step in steps))
-                native = next(step for step in steps if step["name"] == "Verify native solvers on Windows Python 3.8")
-                self.assertIn("matrix.python-version == '3.8'", native["if"])
+                native = next(step for step in steps if step["name"] == "Verify native solvers on Windows")
+                self.assertEqual(native["if"], "${{ matrix.os == 'windows-latest' }}")
                 self.assertIn("matrix.os == 'windows-latest'", native["if"])
                 self.assertIn("import cvxpy, osqp", native["run"])
                 self.assertEqual(steps[-1]["name"], "Report installed dependencies")

@@ -4,7 +4,7 @@
 from __future__ import annotations
 
 import multiprocessing
-from multiprocessing.sharedctypes import Synchronized
+import sys
 import os
 import threading
 import time
@@ -19,6 +19,10 @@ _logger = get_module_logger(__name__)
 T = TypeVar("T")
 
 __all__ = ["DataQueue"]
+
+
+def _identity(item: Any) -> Any:
+    return item
 
 
 class DataQueue(Generic[T]):
@@ -78,10 +82,26 @@ class DataQueue(Generic[T]):
         self.producer_num_workers: int = producer_num_workers
 
         self._activated: bool = False
-        self._queue: multiprocessing.Queue = multiprocessing.Queue(maxsize=queue_maxsize)
-        # Mypy 0.981 brought '"SynchronizedBase[Any]" has no attribute "value"  [attr-defined]' bug.
-        # Therefore, add this type casting to pass Mypy checking.
-        self._done = cast(Synchronized, multiprocessing.Value("i", 0))
+        self._owner_pid = os.getpid()
+        self._cleaned_up = False
+        # Environment factories are cloudpickled by Tianshou. Spawn/forkserver
+        # cannot serialize the mmap behind sharedctypes through that wrapper;
+        # manager proxies keep the queue and completion flag shared and picklable.
+        if multiprocessing.get_start_method() != "fork":
+            self._manager = multiprocessing.Manager()
+            self._queue = self._manager.Queue(maxsize=queue_maxsize)
+            self._done = self._manager.Value("i", 0)
+            self._done_lock = self._manager.RLock()
+        else:
+            self._queue = multiprocessing.Queue(maxsize=queue_maxsize)
+            self._done = multiprocessing.Value("i", 0)
+            self._done_lock = self._done.get_lock()
+
+    def __getstate__(self) -> dict[str, Any]:
+        state = self.__dict__.copy()
+        # Only the producer owns the server lifetime; workers use its proxies.
+        state.pop("_manager", None)
+        return state
 
     def __enter__(self) -> DataQueue:
         self.activate()
@@ -91,7 +111,10 @@ class DataQueue(Generic[T]):
         self.cleanup()
 
     def cleanup(self) -> None:
-        with self._done.get_lock():
+        if self._cleaned_up or self._owner_pid != os.getpid():
+            return
+        self._cleaned_up = True
+        with self._done_lock:
             self._done.value += 1
         for repeat in range(500):
             if repeat >= 1:
@@ -129,7 +152,7 @@ class DataQueue(Generic[T]):
         self._queue.put(obj, block=block, timeout=timeout)
 
     def mark_as_done(self) -> None:
-        with self._done.get_lock():
+        with self._done_lock:
             self._done.value = 1
 
     def done(self) -> int:
@@ -145,7 +168,8 @@ class DataQueue(Generic[T]):
 
     def __del__(self) -> None:
         _logger.debug(f"__del__ of {__name__}.DataQueue")
-        self.cleanup()
+        if not sys.is_finalizing():
+            self.cleanup()
 
     def __iter__(self) -> Generator[Any, None, None]:
         if not self._activated:
@@ -174,7 +198,7 @@ class DataQueue(Generic[T]):
                 batch_size=None,
                 num_workers=self.producer_num_workers,
                 shuffle=self.shuffle,
-                collate_fn=lambda t: t,  # identity collate fn
+                collate_fn=_identity,  # identity collate fn
             )
             repeat = 10**18 if self.repeat == -1 else self.repeat
             for _rep in range(repeat):

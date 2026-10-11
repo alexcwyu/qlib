@@ -2,6 +2,7 @@
 # Licensed under the MIT License.
 
 import sys
+import copy
 import shutil
 import unittest
 import pytest
@@ -13,7 +14,11 @@ from qlib.utils import init_instance_by_config, flatten_dict
 from qlib.workflow import R
 from qlib.workflow.record_temp import SignalRecord, SigAnaRecord, PortAnaRecord
 from qlib.tests import TestAutoData
-from qlib.tests.config import CSI300_GBDT_TASK, CSI300_BENCH
+from qlib.tests.config import CSI300_GBDT_TASK as DEFAULT_CSI300_GBDT_TASK, CSI300_BENCH
+
+# Own the fixture native worker pool without mutating the shared example profile.
+CSI300_GBDT_TASK = copy.deepcopy(DEFAULT_CSI300_GBDT_TASK)
+CSI300_GBDT_TASK["model"]["kwargs"]["num_threads"] = 1
 
 
 def train(uri_path: str = None):

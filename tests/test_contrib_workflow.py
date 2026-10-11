@@ -3,6 +3,7 @@
 
 from qlib.workflow.record_temp import SignalRecord
 import shutil
+import copy
 import unittest
 import pytest
 from pathlib import Path
@@ -14,7 +15,7 @@ from qlib.tests import TestAutoData
 from qlib.tests.config import GBDT_MODEL, get_dataset_config, CSI300_MARKET
 
 CSI300_GBDT_TASK = {
-    "model": GBDT_MODEL,
+    "model": copy.deepcopy(GBDT_MODEL),
     "dataset": get_dataset_config(
         train=("2020-05-01", "2020-06-01"),
         valid=("2020-06-01", "2020-07-01"),
@@ -29,6 +30,8 @@ CSI300_GBDT_TASK = {
     ),
 }
 
+# Own the fixture pool and preserve the shared 20-worker production example.
+CSI300_GBDT_TASK["model"]["kwargs"]["num_threads"] = 1
 
 def train_multiseg(uri_path: str = None):
     model = init_instance_by_config(CSI300_GBDT_TASK["model"])

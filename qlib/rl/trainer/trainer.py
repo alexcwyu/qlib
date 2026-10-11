@@ -274,29 +274,31 @@ class Trainer:
     def venv_from_iterator(self, iterator: Iterable[InitialStateType]) -> FiniteVectorEnv:
         """Create a vectorized environment from iterator and the training vessel."""
 
-        def env_factory():
-            # FIXME: state_interpreter and action_interpreter are stateful (having a weakref of env),
-            # and could be thread unsafe.
-            # I'm not sure whether it's a design flaw.
-            # I'll rethink about this when designing the trainer.
+        # Serialize only the worker inputs, not the trainer, policy or callbacks.
+        simulator_fn = self.vessel.simulator_fn
+        state_interpreter = self.vessel.state_interpreter
+        action_interpreter = self.vessel.action_interpreter
+        reward = self.vessel.reward
+        finite_env_type = self.finite_env_type
+        min_loglevel = self._min_loglevel()
 
-            if self.finite_env_type == "dummy":
-                # We could only experience the "threading-unsafe" problem in dummy.
-                state = copy.deepcopy(self.vessel.state_interpreter)
-                action = copy.deepcopy(self.vessel.action_interpreter)
-                rew = copy.deepcopy(self.vessel.reward)
+        def env_factory():
+            if finite_env_type == "dummy":
+                state = copy.deepcopy(state_interpreter)
+                action = copy.deepcopy(action_interpreter)
+                rew = copy.deepcopy(reward)
             else:
-                state = self.vessel.state_interpreter
-                action = self.vessel.action_interpreter
-                rew = self.vessel.reward
+                state = state_interpreter
+                action = action_interpreter
+                rew = reward
 
             return EnvWrapper(
-                self.vessel.simulator_fn,
+                simulator_fn,
                 state,
                 action,
                 iterator,
                 rew,
-                logger=LogCollector(min_loglevel=self._min_loglevel()),
+                logger=LogCollector(min_loglevel=min_loglevel),
             )
 
         return vectorize_env(

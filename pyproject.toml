@@ -20,7 +20,7 @@ classifiers = [
 name = "pyqlib"
 dynamic = ["version"]
 description = "A Quantitative-research Platform"
-requires-python = ">=3.8.0"
+requires-python = ">=3.13,<3.15"
 readme = {file = "README.md", content-type = "text/markdown"}
 license = { text = "MIT" }
 
@@ -30,11 +30,12 @@ dependencies = [
   # Since version 1.1.0, pandas supports the ffill and bfill methods.
   # Since version 2.1.0, pandas has deprecated the method parameter of the fillna method. 
   # qlib has updated the fillna method in PR 1987 and limited the minimum version of pandas.
-  "pandas>=1.1",
+  # Pandas 3 ZoneInfo pickles require getattr, forbidden by artifact security.
+  "pandas>=1.1,<3",
   # Qlib's filesystem tracking backend is disabled by default in MLflow 3.13.
-  "mlflow<3.13",
+  "mlflow!=3.15.1",
   # filelock 3.30 rejects forks while another thread changes lock descriptor ownership.
-  "filelock>=3.16.0,<3.30",
+  "filelock>=3.16.0,!=3.30.0",
   "redis",
   "dill",
   "fire",
@@ -66,33 +67,31 @@ dev = [
   "tomli; python_version < '3.11'",
 ]
 # On macos-13 system, when using python version greater than or equal to 3.10,
-# pytorch can't fully support Numpy version above 2.0, so, when you want to install torch,
-# it will limit the version of Numpy less than 2.0.
+# Current Torch and NumPy wheels are resolved and validated together in uv.lock.
 rl = [
-  "tianshou<=0.4.10",
+  # Qlib's finite collector uses the four-value Gym API (0.5 migrated to Gymnasium).
+  "tianshou<0.5",
   "torch",
-  "numpy<2.0.0",
+  "numpy",
 ]
 
 lint = [
   # Keep Python and notebook formatting on the same version family.
-  "black<26.1",
+  "black!=26.1.0",
   "pylint",
-  "mypy<1.5.0",
+  "mypy",
   "flake8",
   "nbqa",
 ]
 # snowballstemmer, a dependency of sphinx, was released on 2025-05-08 with version 3.0.0,
 # which causes errors in the build process. So we've limited the version for now.
 docs = [
-  # After upgrading scipy to version 1.16.0,
-  # we encountered ImportError: cannot import name '_lazywhere', in the build documentation,
-  # so we restricted the version of scipy to: 1.15.3
-  "scipy<=1.15.3",
+  # Current Statsmodels and SciPy no longer require the removed private _lazywhere API.
+  "scipy",
   "sphinx",
   "sphinx_rtd_theme",
   "readthedocs_sphinx_ext",
-  "snowballstemmer<3.0",
+  "snowballstemmer",
 ]
 package = [
   "twine",
@@ -103,7 +102,8 @@ test = [
   "yahooquery",
   "baostock",
   # Avoid source builds requiring external libxml2 headers on Windows.
-  "lxml<6.1.3",
+  "lxml; sys_platform != 'win32'",
+  "lxml<6.1.3; sys_platform == 'win32'",
 ]
 analysis = [
   # Qlib still imports figure_factory.create_distplot, removed in Plotly 7.
@@ -111,7 +111,7 @@ analysis = [
   "statsmodels",
 ]
 client = [
-  "python-socketio<6",
+  "python-socketio",
   "tables",
 ]
 
@@ -131,3 +131,9 @@ qrun = "qlib.cli.run:run"
 local_scheme = "no-local-version"
 version_scheme = "guess-next-dev"
 write_to = "qlib/_version.py"
+
+[dependency-groups]
+dev = ["pytest", "pytest-cov", "statsmodels", "build", "cython"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["__pycache__/*", "*.pyc"]

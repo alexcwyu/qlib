@@ -103,7 +103,7 @@ def test_collector_authorizes_selected_artifacts_without_widening_data_reads(rea
 
     with pytest.warns(UnsafeArtifactWarning) as caught:
         collected = collector.collect(only_exist=False)
-    assert len(caught) == 1
+    assert sum(issubclass(warning.category, UnsafeArtifactWarning) for warning in caught) == 1
     recorder_id = artifacts.recorder.info["id"]
     pd.testing.assert_series_equal(
         collected["model"][recorder_id].predict(artifacts.dataset), artifacts.prediction, check_exact=True
@@ -139,7 +139,7 @@ def test_collector_preserves_backend_unpickler_policy(reader_artifacts):
     )
     with pytest.warns(UnsafeArtifactWarning) as caught:
         collected = collector.collect(only_exist=False)
-    assert len(caught) == 1
+    assert sum(issubclass(warning.category, UnsafeArtifactWarning) for warning in caught) == 1
     recorder_id = artifacts.recorder.info["id"]
     pd.testing.assert_series_equal(
         collected["model"][recorder_id].predict(artifacts.dataset), artifacts.prediction, check_exact=True

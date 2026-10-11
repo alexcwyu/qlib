@@ -157,6 +157,18 @@ class PPO(PPOPolicy):
         if weight_file is not None:
             set_weight(self, Trainer.get_policy_state_dict(weight_file))
 
+    def forward(
+        self,
+        batch: Batch,
+        state: dict | Batch | np.ndarray = None,
+        **kwargs: Any,
+    ) -> Batch:
+        # Qlib's direct inference callers provide observations without environment
+        # metadata; Tianshou now requires the field even when the actor ignores it.
+        if "info" not in batch:
+            batch = Batch({**dict(batch.items()), "info": {}})
+        return super().forward(batch, state=state, **kwargs)
+
 
 DQNModel = PPOActor  # Reuse PPOActor.
 

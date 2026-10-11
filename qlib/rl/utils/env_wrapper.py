@@ -113,7 +113,7 @@ class EnvWrapper(
         #    We don't want it to silently live inside some interpreters.
         # 3. Avoid circular reference.
         # 4. When the components get serialized, we can throw away the env without any burden.
-        #    (though this part is not implemented yet)
+        #    Interpreter/Reward.__getstate__ discard this worker-local reference.
         for obj in [state_interpreter, action_interpreter, reward_fn, aux_info_collector]:
             if obj is not None:
                 obj.env = weakref.proxy(self)  # type: ignore

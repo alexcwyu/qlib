@@ -11,7 +11,7 @@ from joblib import parallel_backend
 
 from qlib.contrib.meta.data_selection.dataset import InternalData
 from qlib.contrib.meta.data_selection.model import MetaModelDS, TimeReweighter
-from qlib.contrib.rolling.ddgda import DDGDA
+from qlib.contrib.rolling.ddgda import DDGDA, LGBM_MODEL
 from qlib.model.trainer import DelayTrainerR
 from qlib.utils import init_instance_by_config
 from qlib.utils.exceptions import LoadObjectError
@@ -90,6 +90,10 @@ def _task(context):
 )
 def test_ddgda_full_workflow(workflow_context, sim_task_model, monkeypatch):
     context = workflow_context
+    # This fixture owns both native model pools on macOS. The production DDGDA
+    # profile keeps its thread count; twenty OpenMP workers crash this tiny
+    # workflow after the Torch/RL import graph on the current native runtime.
+    monkeypatch.setitem(LGBM_MODEL["kwargs"], "num_threads", 1)
     monkeypatch.chdir(context.root)
     config = context.root / "workflow.yaml"
     config.write_text(yaml.safe_dump({"task": _task(context)}))

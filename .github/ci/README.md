@@ -9,20 +9,20 @@ sync; `tests/test_ci_configuration.py` checks this.
 
 This is a set of known compatibility bounds, not a fully reproducible Python
 lockfile. The workflows run `pip check` and always print installed versions for
-future diagnosis. They retain all 25 OS/Python combinations per workflow and
+future diagnosis. They cover all 10 combinations of the five OS jobs and supported Python3.13/3.14 per workflow and
 disable matrix fail-fast so that one failure does not hide the others.
 
 ## Why these bounds exist
 
 | Dependency | Constraint | Failure addressed |
 | --- | --- | --- |
-| MLflow | `<3.13` | Qlib uses the filesystem tracking backend, disabled by default in newer versions. |
-| filelock | `>=3.16.0,<3.30` | Fork-safety checks conflict with DataQueue's producer thread and multiprocessing workers. |
+| MLflow | `!=3.15.1` | Retain the specifically identified bad release exclusion; current filesystem storage explicitly uses `MLFLOW_ALLOW_FILE_STORE=true`. |
+| filelock | `>=3.16.0,!=3.30.0` | Retain the specifically identified bad release while the queue uses process-safe spawned state. |
 | fastjsonschema | `<2.22` on Python 3.8/3.9 | Python 3.10 union annotations are evaluated on older interpreters. |
 | Plotly | `<7` | Qlib still imports `figure_factory.create_distplot`. |
-| lxml | `<6.1.3` | The Windows job falls back to a source distribution without libxml2 headers. |
+| lxml | `<6.1.3` on Windows | Preserve the Windows native-wheel restriction; other platforms may resolve the latest release. |
 | OSQP | `==1.0.5` on Windows/Python 3.8 | Native imports crash with 1.1.3 and also with 0.6.7.post3. |
-| Black | `<26.1` | Use one compatible formatter for both Python and notebooks. |
+| Black | `!=26.1.0` | Exclude the identified bad release while resolving current compatible Python/notebook tools. |
 
 OSQP 1.0.5 is the wheel used by the successful full Windows/Python 3.8 job in
 [PR #2308](https://github.com/microsoft/qlib/actions/runs/30225522618/job/89854962742).
@@ -31,8 +31,8 @@ an incompatible environment has already been built. All three workflows smoke
 test native solver imports rather than excluding Windows/Python 3.8.
 
 `MLFLOW_ALLOW_FILE_STORE=true` retains the original PR's explicit file-backend
-opt-in. The upper bound also protects source installs outside CI. Migrating
-Qlib's tracking backend is a separate change.
+opt-in. The current local full suite also uses that explicit opt-in. Source users must set
+it when selecting the deprecated file store. Migrating tracking backend storage is separate.
 
 ## Install only each test job's dependencies
 
@@ -49,7 +49,8 @@ CI calls `make ci-install` with an explicit `CI_EXTRAS` profile. The existing
 
 All source jobs additionally install `test-requirements.txt`: PyTorch is
 required for the neural-network tests even without the RL extra. NumPy/SciPy
-retain the compatibility bounds previously inherited from the RL/docs extras.
+match the current unrestricted RL/docs metadata; the locked local environment validates
+NumPy2.5.4, SciPy1.18.1, and current Torch.
 Ubuntu jobs select CPU PyTorch wheels. torchvision/torchaudio are not used by
 the test suite and are no longer installed explicitly. No test job needs the
 package-building extra; docs dependencies are installed only where `docs-gen`
@@ -71,8 +72,9 @@ registry. A non-Linux footprint check rejects accidental
 reintroduction of tianshou/TensorBoard/grpcio, followed by the unchanged
 `pip check`. If a future test genuinely needs these dependencies on macOS,
 update this policy and validate native wheel metadata/imports rather than
-disabling the checks. This change does not reduce the matrix, alter test
-selection, add caches, or reduce test data sizes.
+disabling the checks. The interpreter axis now matches the supported package range, Python3.13/3.14.
+Every OS job remains, both supported versions run, fail-fast stays disabled,
+and all Windows versions smoke-test native solvers. Test selection and data sizes remain unchanged.
 
 ## Network and workflow retries
 

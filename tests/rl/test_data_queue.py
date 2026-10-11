@@ -57,28 +57,27 @@ def test_multiprocess_shared_dataloader():
         assert len(set(_queue_to_list(queue))) == 100
 
 
+def _exit_finite():
+    dataset = DummyDataset(100)
+    with DataQueue(dataset, producer_num_workers=4) as data_queue:
+        time.sleep(3)
+        raise ValueError
+
+
 def test_exit_on_crash_finite():
-    def _exit_finite():
-        dataset = DummyDataset(100)
-
-        with DataQueue(dataset, producer_num_workers=4) as data_queue:
-            time.sleep(3)
-            raise ValueError
-
-        # https://stackoverflow.com/questions/34506638/how-to-register-atexit-function-in-pythons-multiprocessing-subprocess
-
     process = multiprocessing.Process(target=_exit_finite)
     process.start()
     process.join()
 
 
-def test_exit_on_crash_infinite():
-    def _exit_infinite():
-        dataset = DummyDataset(100)
-        with DataQueue(dataset, repeat=-1, queue_maxsize=100) as data_queue:
-            time.sleep(3)
-            raise ValueError
+def _exit_infinite():
+    dataset = DummyDataset(100)
+    with DataQueue(dataset, repeat=-1, queue_maxsize=100) as data_queue:
+        time.sleep(3)
+        raise ValueError
 
+
+def test_exit_on_crash_infinite():
     process = multiprocessing.Process(target=_exit_infinite)
     process.start()
     process.join()

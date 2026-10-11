@@ -22,6 +22,11 @@ class Reward(Generic[SimulatorState]):
 
     env: Optional[EnvWrapper] = None
 
+    def __getstate__(self) -> dict[str, Any]:
+        state = self.__dict__.copy()
+        state.pop("env", None)  # Each worker binds its own environment.
+        return state
+
     @final
     def __call__(self, simulator_state: SimulatorState) -> float:
         return self.reward(simulator_state)

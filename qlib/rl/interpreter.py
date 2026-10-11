@@ -31,6 +31,11 @@ class Interpreter:
     states by calling ``self.env.register_state()``, but it's not planned for first iteration.
     """
 
+    def __getstate__(self) -> dict[str, Any]:
+        state = self.__dict__.copy()
+        state.pop("env", None)  # Each worker binds its own environment.
+        return state
+
 
 class StateInterpreter(Generic[StateType, ObsType], Interpreter):
     """State Interpreter that interpret execution result of qlib executor into rl env state"""

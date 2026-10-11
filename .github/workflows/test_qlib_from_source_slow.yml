@@ -23,10 +23,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, ubuntu-24.04, ubuntu-22.04, macos-14, macos-15]
-        # In github action, using python 3.7, pip install will not match the latest version of the package.
-        # Also, python 3.7 is no longer supported from macos-14, and will be phased out from macos-13 in the near future.
-        # All things considered, we have removed python 3.7.
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        # Match the supported interpreter range in the package metadata.
+        python-version: ["3.13", "3.14"]
 
     steps:
     - name: Test qlib from source slow
@@ -70,8 +68,8 @@ jobs:
     - name: Verify dependency consistency
       run: python -m pip check
 
-    - name: Verify native solvers on Windows Python 3.8
-      if: ${{ matrix.os == 'windows-latest' && matrix.python-version == '3.8' }}
+    - name: Verify native solvers on Windows
+      if: ${{ matrix.os == 'windows-latest' }}
       run: python -c "import cvxpy, osqp; print('CVXPY', cvxpy.__version__, 'OSQP', osqp.__version__)"
 
     - name: Downloads dependencies data
