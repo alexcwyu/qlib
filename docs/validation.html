@@ -1,25 +1,15 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Validation evidence</title><style>
-:root{color-scheme:light dark;--bg:#f6f8fa;--paper:#fff;--fg:#182332;--muted:#526274;--line:#d9e0e7;--accent:#1769aa}
-@media(prefers-color-scheme:dark){:root{--bg:#111820;--paper:#192330;--fg:#e6edf3;--muted:#a0b3c5;--line:#344354;--accent:#71b7ee}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 system-ui,-apple-system,sans-serif}
-header{border-bottom:1px solid var(--line);padding:16px max(24px,calc((100vw - 1120px)/2));background:var(--paper);font-size:14px}
-main{max-width:1120px;margin:32px auto;padding:40px 48px;background:var(--paper);border:1px solid var(--line);border-radius:12px}
-h1,h2,h3,h4{line-height:1.3;scroll-margin-top:24px}h1{font-size:2.1rem}h2{margin-top:2.5em;border-bottom:1px solid var(--line);padding-bottom:.35em}h3{margin-top:1.8em}
-a{color:var(--accent);text-underline-offset:3px}code{font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg);border-radius:4px;padding:2px 5px}pre{overflow:auto;border:1px solid var(--line);background:var(--bg);padding:16px;border-radius:7px}pre code{padding:0;background:none}
-table{border-collapse:collapse;width:100%;display:block;overflow-x:auto;font-size:14px}th,td{border:1px solid var(--line);padding:9px 12px;text-align:left}th{background:var(--bg)}blockquote{border-left:4px solid var(--accent);margin:16px 0;padding:4px 20px;color:var(--muted)}
-.diagram{overflow-x:auto;margin:24px 0;padding:20px;border:1px solid var(--line);border-radius:8px;background:#fff;color:#182332}.mermaid{border:0;background:none;text-align:center}.mermaid svg{height:auto;max-width:100%}details{font-size:13px;color:#526274}.headerlink{margin-left:.4em;font-size:.7em;text-decoration:none;color:var(--muted)}
-main{min-width:0;overflow-wrap:anywhere}table,pre{max-width:100%}.diagram svg{display:block}
-th,td{min-width:120px;overflow-wrap:normal}
-@media(max-width:740px){main{margin:0;padding:24px 18px;border:0;border-radius:0}h1{font-size:1.7rem}.diagram{padding:8px}}
-@media print{header,details,.headerlink{display:none}body,main{background:#fff;color:#000;border:0;margin:0;padding:0}a{color:#000}.diagram,pre{break-inside:avoid}}
-</style></head><body><header>Engineering documentation · <a href="validation.md">Markdown source</a></header><main><h1 id="validation-evidence">Validation evidence<a class="headerlink" href="#validation-evidence" title="Permanent link">&para;</a></h1>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Validation evidence</title><style>html{color-scheme:light dark}body{margin:0;background:#f5f7fa;color:#172333;font:16px/1.7 system-ui,sans-serif}main{max-width:1120px;margin:28px auto;background:white;padding:40px;border:1px solid #dbe2ea;border-radius:10px}h1,h2,h3{line-height:1.25}h2{margin-top:2em;border-bottom:1px solid #dbe2ea;padding-bottom:.4em}a{color:#1769aa}pre{overflow:auto;padding:16px;background:#f5f7fa;border:1px solid #dbe2ea;border-radius:6px}code{font:14px/1.6 ui-monospace,monospace}table{border-collapse:collapse;display:block;overflow:auto}th,td{border:1px solid #dbe2ea;padding:8px 12px;text-align:left;vertical-align:top}blockquote{margin-left:0;border-left:4px solid #1769aa;padding-left:18px}@media(max-width:700px){main{margin:8px;padding:18px}body{font-size:15px}}@media(prefers-color-scheme:dark){body{background:#111820;color:#e7edf5}main{background:#192330;border-color:#344354}pre{background:#111820}a{color:#78b9ef}th,td,h2,pre{border-color:#344354}}@media print{main{margin:0;border:0;padding:0}a{color:inherit}pre,table{overflow:visible}}.diagram{background:#fff;color:#172333;padding:12px;border:1px solid #dbe2ea;border-radius:6px;overflow:auto}</style></head><body><main><h1 id="validation-evidence">Validation evidence</h1>
+<!-- current-documentation-provenance -->
+<p>Documentation reviewed: 2026-10-13 · Git source base: <code>2d1a897ae444ba6f30be4b867efb56faea83e2e6</code> · <a href="ayu-develop.md">Current architecture and feature guide</a>.
+Historical execution commands/results below retain their original dates and scope; this metadata update is not a new application test run.</p>
+<!-- /current-documentation-provenance -->
+
 <p>Recorded 2026-10-12 on macOS arm64. Selected Python: <strong>3.14.8</strong>; uv0.13.0; native Cargo/Rust1.99.0. Commands below ran from the repository root. Exit124 means the documented time bound expired; exit139 means a native segmentation fault. An earlier failed attempt is retained even if a later rerun succeeds.</p>
-<h2 id="current-scope-and-result">Current scope and result<a class="headerlink" href="#current-scope-and-result" title="Permanent link">&para;</a></h2>
+<h2 id="current-scope-and-result">Current scope and result</h2>
 <p>The complete original706case inventory passes on Python3.14.8:705passed,1existing skipped,73442visible warnings; exit0 in1403.73seconds. Latest compatible all-group/all-extra lock and sync, native Cython wheel/source builds, and source compilation pass. Official CI cn_data and RL fixtures were downloaded before testing. macOS spawn-safe manager queues, picklable factories/collation, and PPO missing-info handling preserve the complete RL cases. Existing tiny training fixtures own one native worker while retaining every date, tree, calculation and assertion. Security collectors count the exact UnsafeArtifactWarning category; unrelated dependency warnings remain visible. Plotly6.9 is the latest release retaining create_distplot, Pandas2.3.3 preserves the restricted artifact graph without permitting builtins.getattr, and Tianshou0.4.11 retains the four-value Gym contract. Current CI matrices test all five operating-system jobs on3.13/3.14, retaining Windows native solver constraints and precise exclusions for known bad dependency releases. Earlier full timeout,314/313native crashes, and the697pass13fail1skip full result remain recorded;3.13 was not selected after its actual failure.</p>
 <p>Current recorded status: <strong>complete</strong>. Interpreter fallback evidence and native prerequisites are described in <a href="development.md">development</a>. See <a href="ayu-develop.md">architecture</a> for workflows, components, and existing source links.</p>
-<h2 id="executed-commands">Executed commands<a class="headerlink" href="#executed-commands" title="Permanent link">&para;</a></h2>
+<h2 id="executed-commands">Executed commands</h2>
 <table>
 <thead>
 <tr>
@@ -432,8 +422,8 @@ th,td{min-width:120px;overflow-wrap:normal}
 </tr>
 </tbody>
 </table>
-<h2 id="test-summaries-and-failures">Test summaries and failures<a class="headerlink" href="#test-summaries-and-failures" title="Permanent link">&para;</a></h2>
-<h3 id="tests">tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h3>
+<h2 id="test-summaries-and-failures">Test summaries and failures</h2>
+<h3 id="tests">tests</h3>
 <p>Exit 124; elapsed 900.08seconds.</p>
 <pre><code class="language-text">tests/data_mid_layer_tests/test_dataloader.py F                          [  0%]
 tests/data_mid_layer_tests/test_dataset.py ...                           [  1%]
@@ -448,25 +438,25 @@ tests/misc/test_sepdf.py .                                               [  3%]
 tests/misc/test_utils.py ..                                              [  4%]
 tests/model/test_general_nn.py
 </code></pre>
-<h3 id="tests-last-failures">tests-last-failures<a class="headerlink" href="#tests-last-failures" title="Permanent link">&para;</a></h3>
+<h3 id="tests-last-failures">tests-last-failures</h3>
 <p>Exit 1; elapsed 42.27seconds.</p>
 <pre><code class="language-text">FAILED tests/data_mid_layer_tests/test_dataloader.py::TestDataLoader::test_nested_data_loader
 ============= 1 failed, 4 passed, 1 skipped, 4 warnings in 35.74s ==============
 </code></pre>
-<h3 id="tests-with-ci-data">tests-with-ci-data<a class="headerlink" href="#tests-with-ci-data" title="Permanent link">&para;</a></h3>
+<h3 id="tests-with-ci-data">tests-with-ci-data</h3>
 <p>Exit 139; elapsed 1247.82seconds.</p>
 <pre><code class="language-text">tests/rolling_tests/test_ddgda.py Fatal Python error: Segmentation faultFatal Python error:
 </code></pre>
-<h3 id="rl-latest-compatible">rl-latest-compatible<a class="headerlink" href="#rl-latest-compatible" title="Permanent link">&para;</a></h3>
+<h3 id="rl-latest-compatible">rl-latest-compatible</h3>
 <p>Exit 1; elapsed 70.43seconds.</p>
 <pre><code class="language-text">FAILED tests/rl/test_trainer.py::test_trainer_fast_dev_run - ReferenceError: ...
 ============== 1 failed, 1 passed, 1 warning in 68.90s (0:01:08) ===============
 </code></pre>
-<h3 id="tests-final-compatible">tests-final-compatible<a class="headerlink" href="#tests-final-compatible" title="Permanent link">&para;</a></h3>
+<h3 id="tests-final-compatible">tests-final-compatible</h3>
 <p>Exit 139; elapsed 1011.29seconds.</p>
 <pre><code class="language-text">tests/rolling_tests/test_ddgda.py Fatal Python error: Segmentation faultFatal Python error:
 </code></pre>
-<h3 id="tests-rl-data-mlflow-diagnosis">tests-rl-data-mlflow-diagnosis<a class="headerlink" href="#tests-rl-data-mlflow-diagnosis" title="Permanent link">&para;</a></h3>
+<h3 id="tests-rl-data-mlflow-diagnosis">tests-rl-data-mlflow-diagnosis</h3>
 <p>Exit 1; elapsed 7.84seconds.</p>
 <pre><code class="language-text">E   FileNotFoundError: No file starting with '/Users/alex/workspaces/trading/qlib/tests/.data/rl/intraday_saoe/us/backtest/AAL' found
 E   FileNotFoundError: [Errno 2] No such file or directory: '/Users/alex/workspaces/trading/qlib/tests/.data/rl/intraday_saoe/us/backtest/AAL.pkl'
@@ -503,32 +493,32 @@ FAILED tests/rl/test_saoe_simple.py::test_twap_strategy[shmem] - FileNotFound...
 FAILED tests/rl/test_saoe_simple.py::test_cn_ppo_strategy - FileNotFoundError...
 FAILED tests/rl/test_saoe_simple.py::test_ppo_train - FileNotFoundError: [Err...
 </code></pre>
-<h3 id="tests-python313-ci-data">tests-python313-ci-data<a class="headerlink" href="#tests-python313-ci-data" title="Permanent link">&para;</a></h3>
+<h3 id="tests-python313-ci-data">tests-python313-ci-data</h3>
 <p>Exit 139; elapsed 1745.85seconds.</p>
 <pre><code class="language-text">tests/rolling_tests/test_ddgda.py Fatal Python error: Segmentation fault
 </code></pre>
-<h3 id="tests-ddgda-single-native-owner">tests-ddgda-single-native-owner<a class="headerlink" href="#tests-ddgda-single-native-owner" title="Permanent link">&para;</a></h3>
+<h3 id="tests-ddgda-single-native-owner">tests-ddgda-single-native-owner</h3>
 <p>Exit 0; elapsed 79.94seconds.</p>
 <pre><code class="language-text">================ 17 passed, 10799 warnings in 77.67s (0:01:17) =================
 </code></pre>
-<h3 id="tests-full314-native-owners">tests-full314-native-owners<a class="headerlink" href="#tests-full314-native-owners" title="Permanent link">&para;</a></h3>
+<h3 id="tests-full314-native-owners">tests-full314-native-owners</h3>
 <p>Exit 139; elapsed 1271.53seconds.</p>
 <pre><code class="language-text">tests/rolling_tests/test_update_pred.py Fatal Python error: Segmentation fault
 </code></pre>
-<h3 id="tests-saoe-current-api">tests-saoe-current-api<a class="headerlink" href="#tests-saoe-current-api" title="Permanent link">&para;</a></h3>
+<h3 id="tests-saoe-current-api">tests-saoe-current-api</h3>
 <p>Exit 1; elapsed 98.11seconds.</p>
 <pre><code class="language-text">FAILED tests/rl/test_saoe_simple.py::test_network_sanity - AttributeError: 'd...
 ============ 1 failed, 11 passed, 136 warnings in 95.99s (0:01:35) =============
 </code></pre>
-<h3 id="tests-saoe-wrapper-info-final">tests-saoe-wrapper-info-final<a class="headerlink" href="#tests-saoe-wrapper-info-final" title="Permanent link">&para;</a></h3>
+<h3 id="tests-saoe-wrapper-info-final">tests-saoe-wrapper-info-final</h3>
 <p>Exit 0; elapsed 119.9seconds.</p>
 <pre><code class="language-text">================= 12 passed, 138 warnings in 117.77s (0:01:57) =================
 </code></pre>
-<h3 id="tests-online-native-owner">tests-online-native-owner<a class="headerlink" href="#tests-online-native-owner" title="Permanent link">&para;</a></h3>
+<h3 id="tests-online-native-owner">tests-online-native-owner</h3>
 <p>Exit 0; elapsed 291.29seconds.</p>
 <pre><code class="language-text">================= 2 passed, 3309 warnings in 289.05s (0:04:49) =================
 </code></pre>
-<h3 id="tests-full314-policy-online-final">tests-full314-policy-online-final<a class="headerlink" href="#tests-full314-policy-online-final" title="Permanent link">&para;</a></h3>
+<h3 id="tests-full314-policy-online-final">tests-full314-policy-online-final</h3>
 <p>Exit 143; elapsed 56.33seconds.</p>
 <pre><code class="language-text">platform darwin -- Python 3.14.8, pytest-9.1.1, pluggy-1.6.0
 rootdir: /Users/alex/workspaces/trading/qlib
@@ -543,7 +533,7 @@ tests/backtest/test_soft_topk_strategy.py .                              [  0%]
 tests/backtest/test_soft_topk_strategy_cold_start.py ..                  [  0%]
 tests/data_mid_layer_tests/test_dataloader.py
 </code></pre>
-<h3 id="tests-full314-all-native-fixtures">tests-full314-all-native-fixtures<a class="headerlink" href="#tests-full314-all-native-fixtures" title="Permanent link">&para;</a></h3>
+<h3 id="tests-full314-all-native-fixtures">tests-full314-all-native-fixtures</h3>
 <p>Exit 1; elapsed 1963.01seconds.</p>
 <pre><code class="language-text">FAILED tests/security/test_artifact_reader_trust.py::test_collector_authorizes_selected_artifacts_without_widening_data_reads
 FAILED tests/security/test_artifact_reader_trust.py::test_collector_preserves_backend_unpickler_policy
@@ -555,27 +545,27 @@ FAILED tests/security/test_eval_registries.py::test_graph_dispatch_preserves_sup
 FAILED tests/test_ci_configuration.py::TestCIConfiguration::test_source_test_runtime_retains_torch_and_numerical_bounds
 ==== 13 failed, 697 passed, 1 skipped, 72740 warnings in 1959.88s (0:32:39) ====
 </code></pre>
-<h3 id="tests-pipeline-fixture-owners">tests-pipeline-fixture-owners<a class="headerlink" href="#tests-pipeline-fixture-owners" title="Permanent link">&para;</a></h3>
+<h3 id="tests-pipeline-fixture-owners">tests-pipeline-fixture-owners</h3>
 <p>Exit 0; elapsed 386.76seconds.</p>
 <pre><code class="language-text">================ 5 passed, 15754 warnings in 384.54s (0:06:24) =================
 </code></pre>
-<h3 id="tests-ci-modern-policy">tests-ci-modern-policy<a class="headerlink" href="#tests-ci-modern-policy" title="Permanent link">&para;</a></h3>
+<h3 id="tests-ci-modern-policy">tests-ci-modern-policy</h3>
 <p>Exit 1; elapsed 0.55seconds.</p>
 <pre><code class="language-text">FAILED tests/test_ci_configuration.py::TestCIConfiguration::test_source_test_runtime_retains_torch_and_numerical_bounds
 =============== 6 failed, 15 passed, 77 subtests passed in 0.15s ===============
 </code></pre>
-<h3 id="tests-security-ci-final-compatible">tests-security-ci-final-compatible<a class="headerlink" href="#tests-security-ci-final-compatible" title="Permanent link">&para;</a></h3>
+<h3 id="tests-security-ci-final-compatible">tests-security-ci-final-compatible</h3>
 <p>Exit 139; elapsed 5.88seconds.</p>
 <pre><code class="language-text">tests/security/test_eval_registries.py::test_tra_initializes_supported_models[Transformer] Fatal Python error: Segmentation fault
 </code></pre>
-<h3 id="tests-security-ci-final-native-pool">tests-security-ci-final-native-pool<a class="headerlink" href="#tests-security-ci-final-native-pool" title="Permanent link">&para;</a></h3>
+<h3 id="tests-security-ci-final-native-pool">tests-security-ci-final-native-pool</h3>
 <p>Exit 0; elapsed 9.05seconds.</p>
 <pre><code class="language-text">============= 51 passed, 573 warnings, 82 subtests passed in 7.29s =============
 </code></pre>
-<h3 id="tests-full314-final-compatibility">tests-full314-final-compatibility<a class="headerlink" href="#tests-full314-final-compatibility" title="Permanent link">&para;</a></h3>
+<h3 id="tests-full314-final-compatibility">tests-full314-final-compatibility</h3>
 <p>Exit 0; elapsed 1403.73seconds.</p>
 <pre><code class="language-text">========= 705 passed, 1 skipped, 73442 warnings in 1401.09s (0:23:21) ==========
 </code></pre>
-<h2 id="synchronization">Synchronization<a class="headerlink" href="#synchronization" title="Permanent link">&para;</a></h2>
+<h2 id="synchronization">Synchronization</h2>
 <p>All upstream branch and tag refs were fetched by the workspace synchronization procedure. Fork updates use non-forcing pushes; upstream tags also have a private local namespace to preserve divergent tags. The default branch was merged into feature/ayu_develop, preserving the modern package layout and upstream source changes. The workspace synchronization JSON and log retain per-ref outcomes and merge history. This document does not claim that any feature branch was pushed.</p></main>
 </body></html>
